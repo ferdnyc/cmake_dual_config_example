@@ -53,21 +53,26 @@ find_package(xmltest REQUIRED COMPONENTS static)
 
 ```console
 $ git clone https://github.com/leethomason/tinyxml2
+
+# Build and install static libtinyxml2.a
 $ cmake -B _build_tinyxml2_static -S tinyxml2 -DBUILD_SHARED_LIBS=0 \
   -DCMAKE_INSTALL_PREFIX=./_dist
 $ cmake --build _build_tinyxml2_static
 $ cmake --install _build_tinyxml2_static
 
+# Build and install shared libtinyxml2.so.10
 $ cmake -B _build_tinyxml2_shared -S tinyxml2 -DBUILD_SHARED_LIBS=1 \
   -DCMAKE_INSTALL_PREFIX=./_dist
 $ cmake --build _build_tinyxml2_shared
 $ cmake --install _build_tinyxml2_shared
 
+# Build and install static libxmltest.a linked with libtinyxml2.a
 $ cmake -B _build_xmltest_static -S xmltest -DBUILD_SHARED_LIBS=0 \
   -Dtinyxml2_ROOT=./_dist -DCMAKE_INSTALL_PREFIX=./_dist
 $ cmake --build _build_xmltest_static
 $ cmake --install _build_xmltest_static
 
+# Build and install shared libxmltest.so.0 linked with libtinyxml2.so.10
 $ cmake -B _build_xmltest_shared -S xmltest -DBUILD_SHARED_LIBS=1 \
   -Dtinyxml2_ROOT=./_dist -DCMAKE_INSTALL_PREFIX=./_dist
 $ cmake --build _build_xmltest_shared
@@ -79,14 +84,18 @@ $ # build the 'runtests' binary.
 
 $ cd runtests
 
+# Build runtests linked with libxmltest.a and libtinyxml2.a
 $ cmake -B _build_static -S . -DUSE_STATIC=1 \
   -Dtinyxml2_ROOT=../_dist -Dxmltest_ROOT=../_dist
 $ cmake --build _build_static
+
 $ ./_build_static/runtests  # run statically-linked tinyxml2 tests
 
+# Build runtests linked with libxmltest.so.0 and libtinyxml2.so.10
 $ cmake -B _build_shared -S . -DUSE_STATIC=0 \
   -Dtinyxml2_ROOT=../_dist -Dxmltest_ROOT=../_dist
 $ cmake --build _build_shared
+
 $ ./_build_shared/runtests  # run tinyxml2 tests on libtinyxml2.so.10
 ```
 

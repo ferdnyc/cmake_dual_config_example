@@ -92,8 +92,8 @@ $ ./_build_shared/runtests  # run tinyxml2 tests on libtinyxml2.so.10
 
 ### License
 
-The code unique to this project is licensed under the Creative Commons CC0-1.0 public domain dedication. See [LICENSES/CC0-1.0.txt][].
+The code unique to this project is licensed under the Creative Commons CC0-1.0 public domain dedication. See [LICENSES/CC0-1.0.txt](./LICENSES/CC0-1.0.txt).
 
-[tinyxml2][tinyxml2] is licensed under the terms of the included [LICENSES/tinyxml2.txt][] license.
+[tinyxml2][tinyxml2] is licensed under the terms of the included [LICENSES/tinyxml2.txt](./LICENSES/tinyxml2.txt) license.
 
 [tinyxml2]: https://github.com/leethomason/tinyxml2
